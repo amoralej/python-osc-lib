@@ -1,3 +1,5 @@
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 # Python3 support in OpenStack starts with version 3.5,
 # which is only in Fedora 24+
 %if 0%{?fedora} >= 24
@@ -10,12 +12,12 @@
 
 Name:       python-%{library}
 Version:    1.1.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    OpenStack library for writing OSC plugins
 License:    ASL 2.0
 URL:        https://github.com/openstack/%{library}/
 
-Source0:    http://tarballs.openstack.org/%{library}/%{library}-1.1.0.tar.gz
+Source0:    http://tarballs.openstack.org/%{library}/%{library}-%{upstream_version}.tar.gz
 
 BuildArch:  noarch
 
@@ -144,7 +146,7 @@ osc-lib is a package of common support modules for writing OSC plugins.
 
 
 %prep
-%autosetup -n %{library}-%{version} -S git
+%autosetup -n %{library}-%{upstream_version} -S git
 
 # Let's handle dependencies ourseleves
 rm -f *requirements.txt
@@ -200,6 +202,9 @@ rm -rf .testrepository
 %endif # with_python3
 
 %changelog
+* Mon Sep 12 2016 Alfredo Moralejo <amoralej@redhat.com> - 1.1.0-2
+- Added upstream_version reference and fallback macro.
+
 * Mon Sep 12 2016 Alfredo Moralejo <amoralej@redhat.com> - 1.1.0-1
 - Update to version 1.1.0
 - Update requirements
