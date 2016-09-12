@@ -9,13 +9,13 @@
 %global module osc_lib
 
 Name:       python-%{library}
-Version:    0.1.0
+Version:    1.1.0
 Release:    1%{?dist}
 Summary:    OpenStack library for writing OSC plugins
 License:    ASL 2.0
 URL:        https://github.com/openstack/%{library}/
 
-Source0:    http://tarballs.openstack.org/%{library}/%{library}-0.1.0.tar.gz
+Source0:    http://tarballs.openstack.org/%{library}/%{library}-1.1.0.tar.gz
 
 BuildArch:  noarch
 
@@ -41,7 +41,6 @@ BuildRequires:  python-os-testr
 BuildRequires:  python-testtools
 BuildRequires:  python-osprofiler
 BuildRequires:  python-oslo-utils
-BuildRequires:  bandit
 BuildRequires:  python-os-client-config
 BuildRequires:  python-requests
 BuildRequires:  python-simplejson
@@ -49,15 +48,15 @@ BuildRequires:  python-stevedore
 
 Requires:   python-oslo-config >= 2:3.4.0
 Requires:   python-six >= 1.9.0
-Requires:   python-pbr >= 1.6.0
+Requires:   python-pbr >= 1.6
 Requires:   python-cliff >= 1.15.0
-Requires:   python-keystoneauth1 >= 2.1.0
+Requires:   python-keystoneauth1 >= 2.10.0
 Requires:   python-os-client-config >= 1.13.1
 Requires:   python-oslo-i18n >= 2.1.0
-Requires:   python-oslo-utils >= 3.11.0
+Requires:   python-oslo-utils >= 3.16.0
 Requires:   python-requests >= 2.10.0
 Requires:   python-simplejson >= 2.2.0
-Requires:   python-stevedore >= 1.10.0
+Requires:   python-stevedore >= 1.16.0
 
 %description -n python2-%{library}
 osc-lib is a package of common support modules for writing OSC plugins.
@@ -106,7 +105,6 @@ BuildRequires:  python3-requests-mock
 BuildRequires:  python3-os-testr
 BuildRequires:  python3-testtools
 BuildRequires:  python3-oslo-utils
-BuildRequires:  bandit
 BuildRequires:  python3-os-client-config
 BuildRequires:  python3-requests
 BuildRequires:  python3-simplejson
@@ -115,15 +113,15 @@ BuildRequires:  python3-stevedore
 
 Requires:   python3-oslo-config >= 2:3.4.0
 Requires:   python3-six >= 1.9.0
-Requires:   python3-pbr >= 1.6.0
+Requires:   python3-pbr >= 1.6
 Requires:   python3-cliff >= 1.15.0
-Requires:   python3-keystoneauth1 >= 2.1.0
+Requires:   python3-keystoneauth1 >= 2.10.0
 Requires:   python3-os-client-config >= 1.13.1
 Requires:   python3-oslo-i18n >= 2.1.0
-Requires:   python3-oslo-utils >= 3.11.0
+Requires:   python3-oslo-utils >= 3.16.0
 Requires:   python3-requests >= 2.10.0
 Requires:   python3-simplejson >= 2.2.0
-Requires:   python3-stevedore >= 1.10.0
+Requires:   python3-stevedore >= 1.16.0
 
 
 %description -n python3-%{library}
@@ -202,5 +200,9 @@ rm -rf .testrepository
 %endif # with_python3
 
 %changelog
+* Mon Sep 12 2016 Alfredo Moralejo <amoralej@redhat.com> - 1.1.0-1
+- Update to version 1.1.0
+- Update requirements
+
 * Tue Jun 14 2016 Alfredo Moralejo <amoralej@redhat.com> - 0.1.0-1
 - initial package
